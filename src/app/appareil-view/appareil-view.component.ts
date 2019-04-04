@@ -1,3 +1,4 @@
+
 import { Component, OnInit } from '@angular/core';
 import { registerLocaleData } from '@angular/common';
 
@@ -10,11 +11,11 @@ import { AppareilService } from '../services/appareil.service';
 registerLocaleData(localeFr);
 
 @Component({
-  selector: 'app-cours',
-  templateUrl: './cours.component.html',
-  styleUrls: ['./cours.component.scss']
+  selector: 'app-appareil-view',
+  templateUrl: './appareil-view.component.html',
+  styleUrls: ['./appareil-view.component.scss']
 })
-export class CoursComponent implements OnInit {
+export class AppareilViewComponent implements OnInit {
 
   isAuth = false;
 
@@ -59,3 +60,4 @@ export class CoursComponent implements OnInit {
   }
 
 }
+
