@@ -6,12 +6,12 @@ import { AppareilComponent } from './appareil-view/appareil/appareil.component';
 import { FormsModule } from '@angular/forms';
 import { AppRoutingModule } from './app-routing.module';
 import { DashboardComponent } from './dashboard/dashboard.component';
-import { ExerciceComponent } from './exercice/exercice.component';
-import { PostListItemComponent } from './post-list-item/post-list-item.component';
-import { PostListComponent } from './post-list/post-list.component';
+import { PostListItemComponent } from './blog/post-list/post-list-item/post-list-item.component';
+import { PostListComponent } from './blog/post-list/post-list.component';
 import { AppareilService } from './services/appareil.service';
 import { AuthComponent } from './auth/auth.component';
 import { AppareilViewComponent } from './appareil-view/appareil-view.component';
+import { BlogComponent } from './blog/blog.component';
 
 
 @NgModule({
@@ -19,11 +19,11 @@ import { AppareilViewComponent } from './appareil-view/appareil-view.component';
     AppComponent,
     AppareilComponent,
     DashboardComponent,
-    ExerciceComponent,
     PostListItemComponent,
     PostListComponent,
     AuthComponent,
-    AppareilViewComponent
+    AppareilViewComponent,
+    BlogComponent
   ],
   imports: [
     BrowserModule,

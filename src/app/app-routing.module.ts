@@ -4,7 +4,7 @@ import { RouterModule, Routes } from '@angular/router';
 
 import { DashboardComponent }from './dashboard/dashboard.component';
 import { AppareilComponent }  from './appareil-view/appareil/appareil.component';
-import { ExerciceComponent }  from './exercice/exercice.component';
+import { BlogComponent }  from './blog/blog.component';
 import { AppareilViewComponent } from './appareil-view/appareil-view.component';
 import { AuthComponent } from './auth/auth.component';
 
@@ -15,7 +15,7 @@ const routes: Routes = [
   { path: 'appareils', component: AppareilViewComponent },
   { path: 'auth', component: AuthComponent },
   { path: 'appareil', component: AppareilComponent },
-  { path: 'exercice', component: ExerciceComponent }
+  { path: 'blog', component: BlogComponent }
 ];
 
 @NgModule({
