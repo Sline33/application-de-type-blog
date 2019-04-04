@@ -10,6 +10,8 @@ import { CoursComponent } from './cours/cours.component';
 import { ExerciceComponent } from './exercice/exercice.component';
 import { PostListItemComponent } from './post-list-item/post-list-item.component';
 import { PostListComponent } from './post-list/post-list.component';
+import { AppareilService } from './services/appareil.service';
+import { AuthComponent } from './auth/auth.component';
 
 
 @NgModule({
@@ -20,14 +22,18 @@ import { PostListComponent } from './post-list/post-list.component';
     CoursComponent,
     ExerciceComponent,
     PostListItemComponent,
-    PostListComponent
+    PostListComponent,
+    AuthComponent
   ],
   imports: [
     BrowserModule,
     FormsModule,
     AppRoutingModule
   ],
-  providers: [ {provide: LOCALE_ID, useValue: "fr-CA" } ],
+  providers: [
+    AppareilService,
+    {provide: LOCALE_ID, useValue: "fr-CA" } 
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

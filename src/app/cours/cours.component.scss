@@ -1,9 +1,14 @@
-button {
-    float: right;
-}
-button.eteint {
-    margin-right: 5px;
-}
-button.retour {
-    margin-top: -25px;
+div.container {
+    margin-bottom: 25px;
+
+    button {
+        float: right;
+    }
+    button.eteint {
+        margin-right: 5px;
+    }
+    button.retour {
+        margin-top: -25px;
+    }
+
 }

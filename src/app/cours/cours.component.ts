@@ -1,8 +1,9 @@
 import { Component, OnInit } from '@angular/core';
-import { registerLocaleData, Location } from '@angular/common';
-import { ActivatedRoute } from '@angular/router';
+import { registerLocaleData } from '@angular/common';
 
 import localeFr from '@angular/common/locales/fr';
+
+import { AppareilService } from '../services/appareil.service';
 
 
 
@@ -17,6 +18,8 @@ export class CoursComponent implements OnInit {
 
   isAuth = false;
 
+  appareils: any[];
+
   
   lastUpdate = new Promise((resolve, reject) => {
     const date = new Date();
@@ -27,24 +30,8 @@ export class CoursComponent implements OnInit {
     );
   });
 
-  appareils = [
-    {
-      name: 'Ordinateur',
-      status: 'allumé'
-    },
-    {
-      name: 'Caftière',
-      status: 'éteint'
-    },
-    {
-      name: 'Lave-vesselle',
-      status: 'éteint'
-    }
-  ];
-
   constructor(
-    private route: ActivatedRoute,
-    private location: Location
+    private appareilService: AppareilService
   ) {
     
     setTimeout(
@@ -54,28 +41,21 @@ export class CoursComponent implements OnInit {
     );
   }
 
-  goBack() {
-    this.location.back();
+  ngOnInit() {
+    this.appareils = this.appareilService.appareils;
   }
+
 
   onAllumer() {
-    console.log('On allume tout !');
-    for (let i = 0; i < this.appareils.length; i++) {
-      if(this.appareils[i].status == "éteint"){
-        this.appareils[i].status = "allumé";
-      }
-    }
-  }
-  onEteint() {
-    console.log('On éteint tout !');
-    for (let i = 0; i < this.appareils.length; i++) {
-      if(this.appareils[i].status == "allumé"){
-        this.appareils[i].status = "éteint";
-      }
-    }
+    this.appareilService.switchOnAll();
   }
 
-  ngOnInit() {
+  onEteint() {
+    if(confirm('Etes-vous sûr de vouloir éteindre tous vos appareils ?')) {
+      this.appareilService.switchOffAll();
+    } else {
+      return null;
+    }
   }
 
 }
