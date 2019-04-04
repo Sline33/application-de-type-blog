@@ -8,8 +8,6 @@ import { AppRoutingModule } from './app-routing.module';
 import { DashboardComponent } from './dashboard/dashboard.component';
 import { CoursComponent } from './cours/cours.component';
 import { ExerciceComponent } from './exercice/exercice.component';
-import { PostComponent } from './post/post.component';
-import { PostlistComponent } from './postlist/postlist.component';
 import { PostListItemComponent } from './post-list-item/post-list-item.component';
 import { PostListComponent } from './post-list/post-list.component';
 
@@ -21,8 +19,6 @@ import { PostListComponent } from './post-list/post-list.component';
     DashboardComponent,
     CoursComponent,
     ExerciceComponent,
-    PostComponent,
-    PostlistComponent,
     PostListItemComponent,
     PostListComponent
   ],
