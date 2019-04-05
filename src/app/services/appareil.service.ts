@@ -2,18 +2,30 @@ export class AppareilService {
   
   appareils = [
     {
+      id: 1,
       name: 'Ordinateur',
       status: 'allumé'
     },
     {
+      id: 2,
       name: 'Caftière',
       status: 'éteint'
     },
     {
+      id: 3,
       name: 'Lave-vesselle',
       status: 'éteint'
     }
   ];
+
+  getAppareilById(id: number) {
+    const appareil = this.appareils.find(
+      (s) => {
+        return s.id === id;
+      }
+    );
+    return appareil;
+  }
 
   switchOnAll() {
     console.log('On allume tout !');

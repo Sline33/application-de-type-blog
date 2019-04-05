@@ -12,6 +12,10 @@ import { AppareilService } from './services/appareil.service';
 import { AuthComponent } from './auth/auth.component';
 import { AppareilViewComponent } from './appareil-view/appareil-view.component';
 import { BlogComponent } from './blog/blog.component';
+import { AuthService } from './services/auth.service';
+import { SingleAppareilComponent } from './appareil-view/appareil/single-appareil/single-appareil.component';
+import { FourOhFourComponent } from './four-oh-four/four-oh-four.component';
+import { AuthGuard } from './services/auth-guard.service';
 
 
 @NgModule({
@@ -23,7 +27,9 @@ import { BlogComponent } from './blog/blog.component';
     PostListComponent,
     AuthComponent,
     AppareilViewComponent,
-    BlogComponent
+    BlogComponent,
+    SingleAppareilComponent,
+    FourOhFourComponent
   ],
   imports: [
     BrowserModule,
@@ -31,7 +37,9 @@ import { BlogComponent } from './blog/blog.component';
     AppRoutingModule
   ],
   providers: [
+    AuthGuard,
     AppareilService,
+    AuthService,
     {provide: LOCALE_ID, useValue: "fr-CA" } 
   ],
   bootstrap: [AppComponent]
