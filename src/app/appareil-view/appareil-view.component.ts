@@ -5,6 +5,7 @@ import { registerLocaleData } from '@angular/common';
 import localeFr from '@angular/common/locales/fr';
 
 import { AppareilService } from '../services/appareil.service';
+import { Subscription } from 'rxjs/Subscription';
 
 
 
@@ -20,6 +21,7 @@ export class AppareilViewComponent implements OnInit {
   isAuth = false;
 
   appareils: any[];
+  appareilSubcription: Subscription;
 
   
   lastUpdate = new Promise((resolve, reject) => {
@@ -31,9 +33,7 @@ export class AppareilViewComponent implements OnInit {
     );
   });
 
-  constructor(
-    private appareilService: AppareilService
-  ) {
+  constructor(private appareilService: AppareilService) {
     
     setTimeout(
       () => {
@@ -43,9 +43,13 @@ export class AppareilViewComponent implements OnInit {
   }
 
   ngOnInit() {
-    this.appareils = this.appareilService.appareils;
+    this.appareilSubcription = this.appareilService.appareilsSubject.subscribe(
+      (appareils: any[]) => {
+        this.appareils = appareils;
+      }
+    );
+    this.appareilService.emitAppareilSubject();
   }
-
 
   onAllumer() {
     this.appareilService.switchOnAll();
@@ -59,5 +63,9 @@ export class AppareilViewComponent implements OnInit {
     }
   }
 
+  ngOnDestroy() {
+    this.appareilSubcription.unsubscribe();
+  }
+  
 }
 
