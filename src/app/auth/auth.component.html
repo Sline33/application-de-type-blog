@@ -1,6 +1,6 @@
 <div class="container">
   <div class="row">
-    <div class="col-md-12 auth">
+    <div class="offset-md-2 col-md-8 auth">
       <h2>Authentification</h2>
       <button class="btn btn-success" *ngIf="!authStatus" (click)="onSignIn()">Se connecter</button>
       <button class="btn btn-danger" *ngIf="authStatus" (click)="onSignOut()">Se déconnecter</button>

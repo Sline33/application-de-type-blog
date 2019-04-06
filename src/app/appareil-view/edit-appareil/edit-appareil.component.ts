@@ -2,7 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { NgForm } from '@angular/forms'
 import { Router } from '@angular/router';
 
-import { AppareilService } from '../services/appareil.service';
+import { AppareilService } from '../../services/appareil.service';
 
 
 @Component({
