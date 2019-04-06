@@ -8,6 +8,7 @@ import { BlogComponent }  from './blog/blog.component';
 import { AppareilViewComponent } from './appareil-view/appareil-view.component';
 import { AuthComponent } from './auth/auth.component';
 import { SingleAppareilComponent } from './appareil-view/appareil/single-appareil/single-appareil.component';
+import { EditAppareilComponent } from './edit-appareil/edit-appareil.component';
 
 import { FourOhFourComponent } from './four-oh-four/four-oh-four.component';
 
@@ -21,6 +22,7 @@ const routes: Routes = [
   { path: 'auth', component: AuthComponent },
   { path: 'appareil', canActivate: [AuthGuard], component: AppareilComponent },
   { path: 'appareils/:id', canActivate: [AuthGuard], component: SingleAppareilComponent },
+  { path: 'edit', canActivate: [AuthGuard], component: EditAppareilComponent},
   { path: 'blog', component: BlogComponent },
   { path: 'not-found', component: FourOhFourComponent },
   { path: '**', redirectTo: 'not-found' }
