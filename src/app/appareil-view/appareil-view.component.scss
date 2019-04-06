@@ -7,3 +7,15 @@ button {
 button.eteint {
     margin-right: 5px;
 }
+
+.lienEdit {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    a {
+        text-align: center;
+        text-transform: uppercase;
+        font-weight: 600;
+    }
+
+} 

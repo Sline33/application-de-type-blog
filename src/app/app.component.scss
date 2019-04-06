@@ -1,3 +1,16 @@
+div.main {
+    margin: 15px 0;
+    p {
+        position: absolute;
+        top: 30px;
+        right: 15px;
+        font-size: 14px;
+
+        span {
+            color: green;
+        }
+    }
+}
 div.container-fluid {
     margin-top: 25px;
     margin-bottom: 25px;
@@ -7,16 +20,6 @@ div.container-fluid {
             font-size: 18px;
             text-transform: uppercase;
             font-weight: 600;
-        }
-    }
-    div.row div.timeConnect {
-        p {
-            margin-top: 5px;
-            font-size: 14px;
-
-            span {
-                color: green;
-            }
         }
     }
 }

@@ -1,5 +1,6 @@
 <!--The content below is only a placeholder and can be replaced.-->
-<div style="text-align:center">
+<div class="main" style="text-align:center">
+  <p>Vous êtes connecté depuis <span>{{ secondes }}</span> secondes !</p>
   <h1>
     Bienvenue sur {{ title }}!
   </h1>
@@ -7,15 +8,13 @@
 </div>
 <div class="container-fluid">
   <nav class="row text-center">
-    <div class="col-md-3" ><a class="btn btn-danger" routerLinkActive="active" routerLink="dashboard">Accueil</a></div>
-    <div class="col-md-3" ><a class="btn btn-danger" routerLinkActive="active"  routerLink="appareils">Appareils</a></div>
-    <div class="col-md-3" ><a class="btn btn-danger" routerLinkActive="active" routerLink="blog">Blog</a></div>
+    <div class="col-md-2" ><a class="btn btn-danger" routerLinkActive="active" routerLink="dashboard">Accueil</a></div>
+    <div class="col-md-2" ><a class="btn btn-danger" routerLinkActive="active" routerLink="appareils">Appareils</a></div>
+    <div class="col-md-2" ><a class="btn btn-danger" routerLinkActive="active" routerLink="blog">Blog</a></div>
+    <div class="col-md-3" ><a class="btn btn-danger" routerLinkActive="active" routerLink="users">Utilisateurs</a></div>     
     <div class="col-md-3" ><a class="btn btn-danger" routerLinkActive="active" routerLink="auth">Authentification</a></div>
   </nav>
-  <div class="row">
-    <div class="offset-md-9 col-md-3 text-center timeConnect">
-        <p>Vous êtes connecté depuis <span>{{ secondes }}</span> secondes !</p>
-    </div>
-  </div>
 </div>
+
+
 <router-outlet></router-outlet>
