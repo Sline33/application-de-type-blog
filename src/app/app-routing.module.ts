@@ -15,7 +15,7 @@ import { AuthGuard } from './services/auth-guard.service';
 
 const routes: Routes = [
   //Route par défault racine site
-  { path: '', redirectTo: '/dashboard', pathMatch: 'full' },
+  { path: '', redirectTo: 'dashboard', pathMatch: 'full' },
   { path: 'dashboard', component: DashboardComponent },
   { path: 'appareils', canActivate: [AuthGuard], component: AppareilViewComponent },
   { path: 'auth', component: AuthComponent },
