@@ -17,11 +17,18 @@
         <div class="form-group">
           <label for="drinkPreference">Quelle boisson préférez-vous ?</label>
           <select id="drinkPreference" class="form-control" formControlName="drinkPreference">
-            <option value="jus d\'orange">Jus d'orange</option>
+            <option value="jus d'orange">Jus d'orange</option>
             <option value="jus de mangue">Jus de mangue</option>
           </select>
         </div>
-        <button type="submit" class="btn btn-primary">Soumettre</button>
+        <div class="hobbies" formArrayName="hobbies">
+          <h3>Vos hobbies</h3>
+          <div class="form-group" *ngFor="let hobbyControl of getHobbies().controls; let i = index">
+            <input type="text" class="form-control" [formControlName]="i">
+          </div>
+          <button type="button" class="btn btn-success" (click)="onAddHobby()">Ajouter un hobby</button>
+        </div>
+        <button type="submit" class="btn btn-primary float-right" [disabled]="userForm.invalid">Soumettre</button>
       </form>
     </div>
   </div>
