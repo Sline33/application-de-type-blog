@@ -1,27 +1,39 @@
 import { Subject } from 'rxjs/Subject';
-import { stringify } from 'querystring';
+import { Injectable } from '@angular/core';
+import { HttpClient } from '@angular/common/http';
 
+@Injectable()
 export class AppareilService {
 
   appareilsSubject = new Subject<any[]>();
   
-  private appareils = [
-    {
-      id: 1,
-      name: 'Ordinateur',
-      status: 'allumé'
-    },
-    {
-      id: 2,
-      name: 'Caftière',
-      status: 'éteint'
-    },
-    {
-      id: 3,
-      name: 'Lave-vesselle',
-      status: 'éteint'
-    }
-  ];
+  private appareils = [];
+
+  constructor(private httpClient: HttpClient) {}
+
+  saveAppareilToService() {
+    this.httpClient.put('https://projet-test-43177.firebaseio.com/appareils.json', this.appareils).subscribe(
+      () => {
+        this.getAppareilfromServer();
+        console.log('Enregistrement terminé !');
+      },
+      (error) => {
+        console.log('Erreur ! : ' + error)
+      }
+    );
+  }
+
+  getAppareilfromServer() {
+    this.httpClient.get<any[]>('https://projet-test-43177.firebaseio.com/appareils.json').subscribe(
+      (response) => {
+        this.appareils = response;
+        this.emitAppareilSubject();
+      },
+      (error) => {
+        console.log('Erreur ! :' + error);
+      }
+    )
+  }
 
   getAppareilById(id: number) {
     const appareil = this.appareils.find(

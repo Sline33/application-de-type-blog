@@ -49,15 +49,21 @@ export class AppareilViewComponent implements OnInit {
       }
     );
     this.appareilService.emitAppareilSubject();
+    console.log('init');
+    this.appareilService.getAppareilfromServer();
   }
+
+  //   this.appareilService.saveAppareilToService();
 
   onAllumer() {
     this.appareilService.switchOnAll();
+    this.appareilService.saveAppareilToService();
   }
 
   onEteint() {
     if(confirm('Etes-vous sûr de vouloir éteindre tous vos appareils ?')) {
       this.appareilService.switchOffAll();
+      this.appareilService.saveAppareilToService();
     } else {
       return null;
     }
